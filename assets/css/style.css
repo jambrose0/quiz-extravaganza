@@ -1,0 +1,22 @@
+* {
+  background-color: rgba(178, 180, 178, 0.123);
+}
+body {
+  color: rgba(4, 4, 184, 0.678);
+}
+header {
+  display: inline;
+}
+#timer {
+  text-align: right;
+}
+section {
+  text-align: center;
+  margin: 20px;
+}
+section h1 {
+  font-size: 45px;
+}
+section p {
+  font-size: 30px;
+}
