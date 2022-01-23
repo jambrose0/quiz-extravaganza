@@ -14,9 +14,16 @@ section {
   text-align: center;
   margin: 20px;
 }
-section h1 {
+.index section h1 {
   font-size: 45px;
 }
-section p {
+.index section p {
   font-size: 30px;
+}
+.index section p strong {
+  text-decoration: underline;
+}
+.scores div {
+  color: green;
+  font-size: 45px;
 }
