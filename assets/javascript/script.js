@@ -53,31 +53,35 @@ function startQuestions() {
 }
 
 function answerReview(correct) {
-  if (quizQuestions[questionEl].correct === quizQuestions[questionEl].)
+  if (
+    quizQuestions[questionEl].correct ===
+    quizQuestions[questionEl].answers[correct]
+  ) {
+    correctAns++;
+    answerReview.textContent = "Correct!";
+  } else {
+    allTime -= 10;
+    timeLeft.textContent = allTime;
+  }
+
+  questionEl++;
+  if (questionEl < quizQuestions.length) {
+    startQuestions();
+  } else {
+    endQuiz();
+  }
 }
-
-
 
 //quiz question array
 var quizQuestions = [
   {
     question: "Which is one of my dogs names?",
-    answers: [
-      "a: Rufus",
-      "b: Squidward",
-      'c: Shadow',
-      'd: "Fido'
-  ],
+    answers: ["a: Rufus", "b: Squidward", "c: Shadow", 'd: "Fido'],
     correct: "c",
   },
   {
     question: "What is the name of my second dog?",
-    answers: [
-      "a: Isabelle",
-      "b: Ranger",
-      'c: Feather',
-      "d: Scout",
-    ],
+    answers: ["a: Isabelle", "b: Ranger", "c: Feather", "d: Scout"],
     correct: "d",
   },
   {
@@ -97,7 +101,7 @@ var quizQuestions = [
       "b: carrots",
       "c: dog treats",
       "d: scrambled eggs",
-],
+    ],
     correct: "a",
   },
   {
@@ -112,12 +116,7 @@ var quizQuestions = [
   },
   {
     question: "Which of my dogs is older?",
-    answers: [
-      " a: Shadow",
-      "b: Scout",
-      "c: Rufus",
-      "d: Fido",
-    ],
+    answers: [" a: Shadow", "b: Scout", "c: Rufus", "d: Fido"],
     correct: "a",
   },
 ];
