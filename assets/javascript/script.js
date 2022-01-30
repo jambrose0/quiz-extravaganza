@@ -7,6 +7,11 @@ var quizConatiner = document.getElementById("quiz");
 var resultsContainer = document.getElementById("results");
 var submitQuiz = document.getElementById("submitQuiz");
 
+var answerOne = document.getElementById("answerOne");
+var answerTwo = document.getElementById("answerTwo");
+var answerThree = document.getElementById("answerThree");
+var answerFour = document.getElementById("answerFour");
+
 var initials = document.getElementById("initials");
 
 //global variables
@@ -18,7 +23,7 @@ var allTime = 180;
 function startQuiz() {
   questionEl = 0;
   allTime = 180;
-  timeLeft.textContent = time;
+  timeLeft.textContent = allTime;
   initials.textContent = "";
 
   var startTimer = setInterval(function () {
@@ -41,15 +46,15 @@ function quizGo() {
 
 function startQuestions() {
   var answerEl = document.createElement("ul");
-  for (var key in quizQuestions[quest].answers) {
+  for (var key in quizQuestions[questionEl].answers) {
     var answerShape = document.createElement("li");
     answerShape.textContent = quizQuestions[questionEl].answers[key];
     //   answerShape.addEventListener('click',)
     answerEl.append(answerShape);
   }
-  quizContainer.innerHTML = `${question} ${answers}`;
+  quiz.innerHTML = `${question} ${answers}`;
 
-  quizContainer.appendChild(answerEl);
+  quiz.appendChild(answerEl);
 }
 
 function answerReview(correct) {
@@ -72,6 +77,8 @@ function answerReview(correct) {
   }
 }
 
+startButton.addEventListener("click", startQuiz);
+answerOne.addEventListener("click");
 //quiz question array
 var quizQuestions = [
   {
@@ -120,3 +127,38 @@ var quizQuestions = [
     correct: "a",
   },
 ];
+
+//storing high scores
+function storeScores(event) {
+  event.preventDefault();
+
+  if (initials.value === "") {
+    alert("Please enter your initials!");
+    return;
+  }
+
+  var userScores = localStorage.getItem("high scores");
+  var scoresArray = [];
+
+  if (userScores === null) {
+    scoresArray = [];
+  } else {
+    scoresArray = JSON.parse(userScores);
+  }
+
+  var highScores = {
+    initials: initials.value,
+    score: finalScore.textContent,
+  };
+  scoresArray.push(userScores);
+
+  var scoresString = JSON.stringify(scoresArray);
+  window.localStorage.setItem("high scores", scoresString);
+
+  storeScores();
+}
+
+var i = 0;
+function showScores() {
+  var highScores = localStorage.getItem("high scores");
+}
