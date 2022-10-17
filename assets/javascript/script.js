@@ -83,12 +83,12 @@ function quizStart() {
     }
   }, 1000);
 
-  ouput.push(
-    <div class="slide">
-      <div class="question"> ${quizQuestions.question}</div>
-      <div class="answers"> ${answers.join("")}</div>
-    </div>
-  );
+  // ouput.push(
+  //   <div class="slide">
+  //     <div class="question"> ${quizQuestions.question}</div>
+  //     <div class="answers"> ${answers.join("")}</div>
+  //   </div>
+  // );
 
   questionStart();
 }
